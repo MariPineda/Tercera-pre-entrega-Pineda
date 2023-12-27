@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<h1>Formulario de socios</h1>
+<body>
+    <form action="{% url 'socios_formulario'%}" method="post">{% csrf_token %}
+        <!--Acá va nuestro formulario-->
+        <table>
+
+             {{formulario.as_table}}
+
+        </table>
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Apellido: <input type="text" name="apellido"></p>
+        <p>email: <input type="email" name="email"></p>
+        <p>Socio: <input type="number" name="socio"></p>
+        <p>Activo: <input type="booleano" name="activo"></p>
+    
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock %}

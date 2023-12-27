@@ -1,0 +1,19 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Formulario de talleres</h1>
+<form action="{% url 'talleres_formulario'%}" method="post">{% csrf_token %}
+    <!--Acá va nuestro formulario-->
+    <table>
+
+         {{formulario.as_table}}
+
+    </table>
+    <p>Nombre: <input type="text" name="nombre"></p>
+    <p>Nivel: <input type="text" name="nivel"></p>
+    <p>Camada: <input type="number" name="camada"></p>
+
+    <input type="submit" value="Enviar">
+    
+
+{% endblock %}
